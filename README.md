@@ -126,17 +126,14 @@ void getLocation() async {
 }  
   
 Future <void> getData() async{  
-  http.Response response = await http.get('http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$apiKey');  
-  if(response.statusCode == 200) {  
-    String data = response.body;  
-  
-    var condition = convert.jsonDecode(data)['weather'][0]['id'];  
-	var temperature = weatherData['main']['temp'];  
-	var cityName = weatherData['name'];  
-  
-	 print(condition);  
-	 print(cityName);  
-	 print(temperature); 
+  var url = Uri.parse('http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$apiKey');
+    http.Response response = await http.get(url);
+    if(response.statusCode == 200) {
+      String data = response.body;
+
+      var condition = convert.jsonDecode(data)['weather'][0]['id'];
+      var temperature = convert.jsonDecode(data)['main']['temp'];
+      var cityName = convert.jsonDecode(data)['name'];
   }  
   else{  
     print(response.statusCode);  
