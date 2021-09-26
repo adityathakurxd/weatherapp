@@ -24,7 +24,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             widget.cityName,
             style: const TextStyle(
               fontSize: 40.0,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           const SizedBox(
@@ -34,7 +34,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             '${widget.temp}',
             style: const TextStyle(
               fontSize: 60.0,
-              color: Colors.white,
+              color: Colors.black,
             ),
           )
         ],

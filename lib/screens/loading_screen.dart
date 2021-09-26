@@ -42,10 +42,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
       var cityName = convert.jsonDecode(data)['name'];
       print(cityName);
 
-      Navigator.push(
+      Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-              builder: (context) => WeatherScreen(temperature, cityName)));
+              builder: (context) => WeatherScreen(temperature, cityName)),
+          (route) => false);
     } else {
       print(response.statusCode);
     }
