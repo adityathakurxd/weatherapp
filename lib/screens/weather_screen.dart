@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class WeatherScreen extends StatefulWidget {
   String cityName;
-  int temp;
+  double temp;
   WeatherScreen(this.temp, this.cityName, {Key? key}) : super(key: key);
   @override
   _WeatherScreenState createState() => _WeatherScreenState();
