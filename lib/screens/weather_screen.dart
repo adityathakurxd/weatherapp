@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weatherapp/models/weathermodel.dart';
 
 // ignore: must_be_immutable
 class WeatherScreen extends StatefulWidget {
-  String cityName;
-  double temp;
-  WeatherScreen(this.temp, this.cityName, {Key? key}) : super(key: key);
+  WeatherApi weatherApi;
+  WeatherScreen({Key? key, required this.weatherApi}) : super(key: key);
   @override
   _WeatherScreenState createState() => _WeatherScreenState();
 }
@@ -21,7 +21,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             width: MediaQuery.of(context).size.width,
           ),
           Text(
-            widget.cityName,
+            widget.weatherApi.name,
             style: const TextStyle(
               fontSize: 40.0,
               color: Colors.black,
@@ -31,7 +31,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
             height: 20.0,
           ),
           Text(
-            '${widget.temp}',
+            widget.weatherApi.weather[0].description,
+            //
             style: const TextStyle(
               fontSize: 60.0,
               color: Colors.black,
