@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 import 'package:weatherapp/constants/secrets.dart';
+import 'package:weatherapp/models/weathermodel.dart';
 import 'package:weatherapp/screens/weather_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -38,14 +39,18 @@ class _LoadingScreenState extends State<LoadingScreen> {
     if (response.statusCode == 200) {
       String data = response.body;
 
-      var temperature = convert.jsonDecode(data)['main']['temp'];
-      var cityName = convert.jsonDecode(data)['name'];
-      print(cityName);
+      final parsedJson = convert.jsonDecode(data);
+      final weather = WeatherApi.fromJson(parsedJson);
+      // var temperature = convert.jsonDecode(data)['main']['temp'];
+      // var cityName = convert.jsonDecode(data)['name'];
+      // print(cityName);
 
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-              builder: (context) => WeatherScreen(temperature, cityName)),
+              builder: (context) => WeatherScreen(
+                    weatherApi: weather,
+                  )),
           (route) => false);
     } else {
       print(response.statusCode);
