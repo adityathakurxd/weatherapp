@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
 import 'package:weatherapp/constants/secrets.dart';
 import 'package:weatherapp/models/weathermodel.dart';
 import 'package:weatherapp/screens/weather_screen.dart';
