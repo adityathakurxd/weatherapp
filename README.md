@@ -1,9 +1,6 @@
-# Weather App - Hands on Session
-"Hands-on Session on Flutter" organised by [GirlScript Pathankot](https://www.linkedin.com/in/ACoAADD7RX0B1g8Jt_7VqXogTuLaAMnmFYBL1II)  📱  
+# Weather App - Hands on Session 
 
 ## Getting Started
-If you haven't worked with Flutter before, consider reading my article on 'Writing your first app in Flutter.' published on Medium [here](https://adityathakurxd.medium.com/writing-your-first-app-in-flutter-8e5a1ec85b70).
-
 To get started, Create a new Flutter project:
 
     flutter create weatherapp
