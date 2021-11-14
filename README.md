@@ -347,32 +347,42 @@ appBar: AppBar(
 That is it!
 
 ## Model
-```
-class Weather {
-    Weather({
-        this.id,
-        this.main,
-        this.description,
-        this.icon,
-    });
+```dart
+class WeatherData {
+  WeatherData({
+    required this.name,
+    required this.main,
+  });
 
-    int id;
-    String main;
-    String description;
-    String icon;
+  Main main;
+  String name;
 
-    factory Weather.fromJson(Map<String, dynamic> json) => Weather(
-        id: json["id"],
-        main: json["main"],
-        description: json["description"],
-        icon: json["icon"],
-    );
+  factory WeatherData.fromJson(Map<String, dynamic> json) => WeatherData(
+        main: Main.fromJson(json["main"]),
+        name: json["name"],
+      );
 
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "main": main,
-        "description": description,
-        "icon": icon,
-    };
+  Map<String, dynamic> toJson() => {
+        "main": main.toJson(),
+        "name": name,
+      };
+}
+
+class Main {
+  Main({
+    required this.temp,
+  });
+
+  double temp;
+
+  factory Main.fromJson(Map<String, dynamic> json) => Main(
+        temp: json["temp"].toDouble(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "temp": temp,
+      };
 }
 ```
+
+Use `WeatherData.fromJson(json.decode(str));`
